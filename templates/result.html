@@ -1,622 +1,551 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)https://satoshi.webpixels.io/ -->
 <html lang="en" data-theme="light">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
-    <meta name="color-scheme" content="dark light" />
-    <link
-      rel="icon"
-      href="{{ url_for('static', filename='icon/logo-light-logo.svg')}}"
-      sizes="any"
-    />
-    <title>Suroboyo Sambat</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='style/main.css')}}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='style/utility.css')}}"
-    />
-    <!-- <link rel="stylesheet" href="./bootstrap-icons.css" /> -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style/css')}}"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
-    />
-    <!-- <script
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" href="{{ url_for('static', filename='icon/logo-light-logo.svg')}}" sizes="any" />
+  <title>Suroboyo Sambat</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/main.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/utility.css')}}" />
+  <!-- <link rel="stylesheet" href="./bootstrap-icons.css" /> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/css')}}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+  <!-- <script
       defer="defer"
       data-domain="satoshi.webpixels.io"
       src="./script.outbound-links.js.download"
     ></script> -->
-    <style>
-      /* Imports Pippins from Google Fonts */
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-      /* Hides AnyChart logo */
-      .anychart-credits-text,
-      .anychart-credits-logo,
-      .anychart-credits {
-        visibility: hidden;
-      }
+  <style>
+    /* Imports Pippins from Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-      #generate,
-      #scrap {
-        background-color: #fff;
-        transition: all linear 0.1s;
-      }
-      #generate:hover,
-      #scrap:hover {
-        background-color: #8957ff;
-        cursor: pointer;
-      }
-      #generate:hover h2,
-      #scrap:hover h2 {
-        color: #fff;
-      }
+    /* Hides AnyChart logo */
+    .anychart-credits-text,
+    .anychart-credits-logo,
+    .anychart-credits {
+      visibility: hidden;
+    }
 
+    #generate,
+    #scrap {
+      background-color: #fff;
+      transition: all linear 0.1s;
+    }
+
+    #generate:hover,
+    #scrap:hover {
+      background-color: #8957ff;
+      cursor: pointer;
+    }
+
+    #generate:hover h2,
+    #scrap:hover h2 {
+      color: #fff;
+    }
+
+    #cloud-container {
+      /* border: grey 1px solid; */
+      /* margin: 0px 0px 0px 0px auto; */
+      width: auto;
+      border-radius: 8px;
+      height: 500px;
+      padding: 2px;
+      background-color: #fff;
+    }
+
+    /* Making it ✨responsive✨ */
+    @media only screen and (max-width: 1110px) {
       #cloud-container {
-        /* border: grey 1px solid; */
-        /* margin: 0px 0px 0px 0px auto; */
-        width: auto;
-        border-radius: 8px;
-        height: 500px;
-        padding: 2px;
-        background-color: #fff;
+        width: 550px;
       }
-      /* Making it ✨responsive✨ */
-      @media only screen and (max-width: 1110px) {
-        #cloud-container {
-          width: 550px;
-        }
-      }
+    }
 
-      @media only screen and (max-width: 600px) {
-        #cloud-container {
-          width: 480px;
-        }
+    @media only screen and (max-width: 600px) {
+      #cloud-container {
+        width: 480px;
       }
-      .btn-choco {
-        --x-btn-color: #fff;
-        --x-btn-bg: #b67a08;
-        --x-btn-border-color: #b67a08;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #996607;
-        --x-btn-hover-border-color: #996607;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #996607;
-        --x-btn-active-border-color: #996607;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #b67a08;
-        --x-btn-disabled-border-color: #b67a08;
-      }
-      .btn-army {
-        --x-btn-color: #fff;
-        --x-btn-bg: #456e09;
-        --x-btn-border-color: #456e09;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #355407;
-        --x-btn-hover-border-color: #355407;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #355407;
-        --x-btn-active-border-color: #355407;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #456e09;
-        --x-btn-disabled-border-color: #456e09;
-      }
-      .btn-indigo {
-        --x-btn-color: #fff;
-        --x-btn-bg: #6d3797;
-        --x-btn-border-color: #6d3797;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #582381;
-        --x-btn-hover-border-color: #582381;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #582381;
-        --x-btn-active-border-color: #582381;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #6d3797;
-        --x-btn-disabled-border-color: #6d3797;
-      }
-      .btn-fuschia {
-        --x-btn-color: #fff;
-        --x-btn-bg: #b60876;
-        --x-btn-border-color: #b60876;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #870c5a;
-        --x-btn-hover-border-color: #870c5a;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #870c5a;
-        --x-btn-active-border-color: #870c5a;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #b60876;
-        --x-btn-disabled-border-color: #b60876;
-      }
-      .btn-blue {
-        --x-btn-color: #fff;
-        --x-btn-bg: #375e97;
-        --x-btn-border-color: #375e97;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #2d4e7f;
-        --x-btn-hover-border-color: #2d4e7f;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #2d4e7f;
-        --x-btn-active-border-color: #2d4e7f;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #375e97;
-        --x-btn-disabled-border-color: #375e97;
-      }
-      .btn-orange {
-        --x-btn-color: #fff;
-        --x-btn-bg: #fb6542;
-        --x-btn-border-color: #fb6542;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #c9492c;
-        --x-btn-hover-border-color: #c9492c;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #c9492c;
-        --x-btn-active-border-color: #c9492c;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #fb6542;
-        --x-btn-disabled-border-color: #fb6542;
-      }
-      .btn-yellow {
-        --x-btn-color: #fff;
-        --x-btn-bg: #e7aa03;
-        --x-btn-border-color: #e7aa03;
-        --x-btn-hover-color: #fff;
-        --x-btn-hover-bg: #cd9704;
-        --x-btn-hover-border-color: #cd9704;
-        --x-btn-focus-shadow-rgb: 155, 112, 255;
-        --x-btn-active-color: #fff;
-        --x-btn-active-bg: #cd9704;
-        --x-btn-active-border-color: #cd9704;
-        --x-btn-active-shadow: 0 0 0 0 transparent;
-        --x-btn-disabled-color: #fff;
-        --x-btn-disabled-bg: #e7aa03;
-        --x-btn-disabled-border-color: #e7aa03;
-      }
-    </style>
-  </head>
-  <body class="p-1 p-lg-2" id="sambat">
-    <div class="overflow-x-hidden rounded-top-4 pt-2 pt-lg-4">
-      <header>
-        <div
-          class="w-lg-75 mx-2 mx-lg-auto position-relative z-2 px-lg-3 py-1 shadow-5 rounded-3 rounded-lg-pill bg-dark"
-        >
-          <nav class="navbar navbar-expand-lg navbar-dark p-0" id="navbar">
-            <div class="container px-sm-0">
-              <a
-                class="navbar-brand d-inline-block w-lg-64"
-                href="https://satoshi.webpixels.io/#"
-                ><img
-                  src="{{ url_for('static', filename='icon/logo-light.svg')}}"
-                  class="h-rem-10"
-                  alt="..."
-              /></a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div
-                class="collapse navbar-collapse justify-content-end"
-                id="navbarCollapse"
-              >
-                <div
-                  class="navbar-nav align-items-lg-center justify-content-end gap-2 ms-lg-4 w-lg-64"
-                >
-                  <a
-                    href="#generate"
-                    class="btn btn-sm btn-white border-0 rounded-lg-pill w-100 w-lg-auto mb-4 mb-lg-0"
-                    >Get started</a
-                  >
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+    }
 
-      <main id="main">
-        <div
-          class="pt-56 pb-10 pt-lg-56 pb-lg-0 mt-n40 position-relative gradient-bottom-right start-indigo middle-purple end-yellow"
-        >
-          <div class="container pb-5">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-lg-7 col-md-8">
-                <h1 class="ls-tight fw-bolder display-6 text-white mb-3">
-                  Dashboard Analisis Komentar Instagram Walikota dan Wakil
-                  Walikota Surabaya
-                </h1>
-                <p class="w-xl-75 lead text-white">
-                  Selamat datang di Dashboard Analisis Komentar Instagram
-                  Walikota Surabaya! Halaman ini menghadirkan visualisasi hasil
-                  analisis komentar dari akun Instagram resmi Walikota Surabaya.
-                  Kami menggunakan teknik <strong>scrapping data</strong> untuk
-                  mengumpulkan komentar dari berbagai unggahan dan melakukan
-                  <strong>klasterisasi</strong>
-                  untuk memahami
-                  <strong>keluhan dan pandangan masyarakat</strong> secara lebih
-                  mendalam terkait masalah-masalah yang diungkapkan. Kami
-                  membagi komentar menjadi <strong>17 klaster</strong> untuk
-                  memberikan wawasan yang komprehensif terhadap isu-isu yang
-                  menjadi perhatian utama masyarakat Surabaya. Jelajahi
-                  visualisasi data kami dan temukan intisari dari tanggapan
-                  masyarakat terhadap <strong>isu-isu</strong>
-                  kota ini.
-                </p>
-              </div>
-              <div
-                class="col-lg-5 col-md-4 d-md-block d-none d-md-block shadow-lg"
-              >
-                <div
-                  class="justify-content-center align-items-center shadow-lg"
-                >
-                  <img
-                    class="shadow-lg rounded-5"
-                    src="{{ url_for('static', filename='img/sby.jpg') }}"
-                    alt="sby.jpg"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="mt-10 section-step-lg" id="result">
-              <div class="row justify-content-between align-items-center">
-                <div class="col-lg-6 mb-7 mb-lg-0">
-                  <div class="bg-secondary overflow-hidden rounded-4 ps-8 pt-8">
-                    <div id="cloud-container" class="img-fluid"></div>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <form action="" method="post" enctype="multipart/form-data">
-                    <div class="mb-5 bg-white rounded-4 p-8">
-                      <h5
-                        class="h5 mb-5 text-uppercase text-secondary fw-bolder"
-                      >
-                        <i>Scrapping</i> Sekarang
-                      </h5>
-                      <h1 class="font-display ls-tight fw-bolder mb-5">
-                        Mulai <i>scrapping</i> dengan memasukkan dokumen
-                        berjenis excel.
-                      </h1>
-                      <p class="lead">
-                        <textarea
-                          id="input-text"
-                          name=""
-                          id=""
-                          rows="7"
-                          class="form-control d-none"
-                        ></textarea>
-                        <h1 class="d-none" id="input-title"></h1>
-                        <input
-                          class="form-control form-control-lg"
-                          id="excel_file"
-                          type="file"
-                          name="excel_file"
-                          accept=".xlsx, .xls"
-                          placeholder="excel file (.xls, .xlsx)"
-                        />
-                      </p>
-                    </div>
-                    <div
-                      class="col-6 mb-4 mb-lg-0 rounded-4 p-2 text-center align-self-center d-none"
-                      id="generate"
-                    >
-                      <h2 class="font-display ls-tight">Start Scrap !!!</h2>
-                    </div>
-                    <div
-                      class="col-6 mb-4 mt-4 mb-lg-0 rounded-4 text-center align-self-center"
-                      id="scrap"
-                    >
-                      <button type="submit" class="btn btn-unstyled">
-                        <h2 class="font-display ls-tight">
-                          Mulai <i>Scrapping</i> !!!
-                        </h2>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div
-                class="row justify-content-around align-items-center my-5"
-                id="button-dynamic"
-              ></div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="mt-2 py-20 bg-dark rounded-bottom-4 overflow-hidden position-relative z-1 px-7"
-        >
-          <div class="container mw-screen-xl">
-            <div class="col">
-              <div class="col-lg-12 col-md-10">
-                <h5 class="h5 mb-5 text-uppercase text-primary">
-                  Mengapa dashboard ini dibuat
-                </h5>
-                <h1
-                  class="display-4 font-display text-white fw-bolder lh-tight mb-4"
-                >
-                  Tujuan ?
-                </h1>
-                <p class="text-lg text-white text-opacity-75">
-                  Dashboard ini bertujuan untuk memberikan gambaran yang lebih
-                  mendalam tentang isu-isu yang menjadi fokus perhatian
-                  masyarakat Surabaya melalui analisis komentar di platform
-                  Instagram. Informasi yang diberikan diharapkan dapat membantu
-                  pemerintah kota dalam memahami kebutuhan dan aspirasi warga
-                  secara lebih efektif.
-                </p>
+    .btn-choco {
+      --x-btn-color: #fff;
+      --x-btn-bg: #b67a08;
+      --x-btn-border-color: #b67a08;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #996607;
+      --x-btn-hover-border-color: #996607;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #996607;
+      --x-btn-active-border-color: #996607;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #b67a08;
+      --x-btn-disabled-border-color: #b67a08;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-army {
+      --x-btn-color: #fff;
+      --x-btn-bg: #456e09;
+      --x-btn-border-color: #456e09;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #355407;
+      --x-btn-hover-border-color: #355407;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #355407;
+      --x-btn-active-border-color: #355407;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #456e09;
+      --x-btn-disabled-border-color: #456e09;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-indigo {
+      --x-btn-color: #fff;
+      --x-btn-bg: #6d3797;
+      --x-btn-border-color: #6d3797;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #582381;
+      --x-btn-hover-border-color: #582381;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #582381;
+      --x-btn-active-border-color: #582381;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #6d3797;
+      --x-btn-disabled-border-color: #6d3797;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-fuschia {
+      --x-btn-color: #fff;
+      --x-btn-bg: #b60876;
+      --x-btn-border-color: #b60876;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #870c5a;
+      --x-btn-hover-border-color: #870c5a;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #870c5a;
+      --x-btn-active-border-color: #870c5a;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #b60876;
+      --x-btn-disabled-border-color: #b60876;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-blue {
+      --x-btn-color: #fff;
+      --x-btn-bg: #375e97;
+      --x-btn-border-color: #375e97;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #2d4e7f;
+      --x-btn-hover-border-color: #2d4e7f;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #2d4e7f;
+      --x-btn-active-border-color: #2d4e7f;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #375e97;
+      --x-btn-disabled-border-color: #375e97;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-orange {
+      --x-btn-color: #fff;
+      --x-btn-bg: #fb6542;
+      --x-btn-border-color: #fb6542;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #c9492c;
+      --x-btn-hover-border-color: #c9492c;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #c9492c;
+      --x-btn-active-border-color: #c9492c;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #fb6542;
+      --x-btn-disabled-border-color: #fb6542;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+
+    .btn-yellow {
+      --x-btn-color: #fff;
+      --x-btn-bg: #e7aa03;
+      --x-btn-border-color: #e7aa03;
+      --x-btn-hover-color: #fff;
+      --x-btn-hover-bg: #cd9704;
+      --x-btn-hover-border-color: #cd9704;
+      --x-btn-focus-shadow-rgb: 155, 112, 255;
+      --x-btn-active-color: #fff;
+      --x-btn-active-bg: #cd9704;
+      --x-btn-active-border-color: #cd9704;
+      --x-btn-active-shadow: 0 0 0 0 transparent;
+      --x-btn-disabled-color: #fff;
+      --x-btn-disabled-bg: #e7aa03;
+      --x-btn-disabled-border-color: #e7aa03;
+      border: #fff 1px solid;
+      box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+    }
+  </style>
+</head>
+
+<body class="p-1 p-lg-2" id="sambat">
+  <div class="overflow-x-hidden rounded-top-4 pt-2 pt-lg-4">
+    <header>
+      <div
+        class="w-lg-75 mx-2 mx-lg-auto position-relative z-2 px-lg-3 py-1 shadow-5 rounded-3 rounded-lg-pill bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark p-0" id="navbar">
+          <div class="container px-sm-0">
+            <a class="navbar-brand d-inline-block w-lg-64" href="https://satoshi.webpixels.io/#"><img
+                src="{{ url_for('static', filename='icon/logo-light.svg')}}" class="h-rem-10" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+              <div class="navbar-nav align-items-lg-center justify-content-end gap-2 ms-lg-4 w-lg-64">
+                <a href="#generate"
+                  class="btn btn-sm btn-white border-0 rounded-lg-pill w-100 w-lg-auto mb-4 mb-lg-0">Get started</a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="py-20 py-lg-20 bg-body-secondary">
-          <div class="container mw-screen-xl">
-            <div class="col align-items-center justify-content-center mb-10">
-              <div class="mb-4 mb-lg-0 text-center">
-                <h1 class="display-5 ls-tight mb-3">
-                  Pemrosesan dengn 3 Langkah Mudah
-                </h1>
-                <p class="text-muted">
-                  untuk memproses topik terbanyak pada komentar Tokoh
-                </p>
-              </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div
+        class="pt-56 pb-10 pt-lg-56 pb-lg-0 mt-n40 position-relative gradient-bottom-right start-indigo middle-purple end-yellow">
+        <div class="container pb-5">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-7 col-md-8">
+              <h1 class="ls-tight fw-bolder display-6 text-white mb-3">
+                Dashboard Analisis Komentar Instagram Walikota dan Wakil
+                Walikota Surabaya
+              </h1>
+              <p class="w-xl-75 lead text-white">
+                Selamat datang di Dashboard Analisis Komentar Instagram
+                Walikota Surabaya! Halaman ini menghadirkan visualisasi hasil
+                analisis komentar dari akun Instagram resmi Walikota Surabaya.
+                Kami menggunakan teknik <strong>scrapping data</strong> untuk
+                mengumpulkan komentar dari berbagai unggahan dan melakukan
+                <strong>klasterisasi</strong>
+                untuk memahami
+                <strong>keluhan dan pandangan masyarakat</strong> secara lebih
+                mendalam terkait masalah-masalah yang diungkapkan. Kami
+                membagi komentar menjadi <strong>17 klaster</strong> untuk
+                memberikan wawasan yang komprehensif terhadap isu-isu yang
+                menjadi perhatian utama masyarakat Surabaya. Jelajahi
+                visualisasi data kami dan temukan intisari dari tanggapan
+                masyarakat terhadap <strong>isu-isu</strong>
+                kota ini.
+              </p>
             </div>
-            <div class="row g-8 justify-content-center">
-              <div class="col-md-6 col-xl-4">
-                <div class="card shadow-soft-2 h-md-100">
-                  <div class="card-body d-flex flex-column p-8">
-                    <div class="col d-flex justify-content-center mb-2">
-                      <div
-                        class="icon icon-shape text-bg-primary rounded-circle mb-4 fs-1"
-                      >
-                        <i class="bi bi-cloud-arrow-up-fill"></i>
-                      </div>
-                    </div>
-                    <h5 class="h4 mb-4">1. Unggah File Excel</h5>
-                    <p class="text-sm">
-                      Unggah file berekstensi .xls atau .xlsx yang berisikan
-                      kumpulan komentar pada postingan Tokoh
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-xl-4">
-                <div class="card shadow-soft-2 h-md-100">
-                  <div class="card-body d-flex flex-column p-8">
-                    <div class="col d-flex justify-content-center mb-2">
-                      <div
-                        class="icon icon-shape text-bg-secondary rounded-circle mb-4 fs-1"
-                      >
-                        <i class="bi bi-caret-right-fill"></i>
-                      </div>
-                    </div>
-                    <h5 class="h4 mb-4">2. Generate and Proses</h5>
-                    <p class="text-sm">
-                      Proses dengan mengeklik pada tombol
-                      <strong>Start Scrap !!!</strong>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-xl-4">
-                <div class="card shadow-soft-2 h-md-100">
-                  <div class="card-body d-flex flex-column p-8">
-                    <div class="col d-flex justify-content-center mb-2">
-                      <div
-                        class="icon icon-shape text-bg-dark rounded-circle mb-4 fs-1"
-                      >
-                        <i class="bi bi-send-check-fill"></i>
-                      </div>
-                    </div>
-                    <h5 class="h4 mb-4">3. Periksa dan Bagikan</h5>
-                    <p class="text-sm">
-                      Periksa hasil pemrosesan model dalam bentuk
-                      <i>Word Cloud</i> dan bagikan
-                    </p>
-                  </div>
-                </div>
+            <div class="col-lg-5 col-md-4 d-md-block d-none d-md-block shadow-lg">
+              <div class="justify-content-center align-items-center shadow-lg">
+                <img class="shadow-lg rounded-5" src="{{ url_for('static', filename='img/sby.jpg') }}" alt="sby.jpg" />
               </div>
             </div>
           </div>
+          <div class="mt-10 section-step-lg" id="result">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-lg-6 mb-7 mb-lg-0">
+                <div class="bg-secondary overflow-hidden rounded-4 ps-8 pt-8">
+                  <div id="cloud-container" class="img-fluid"></div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <form action="" method="post" enctype="multipart/form-data">
+                  <div class="mb-5 bg-white rounded-4 p-8">
+                    <h5 class="h5 mb-5 text-uppercase text-secondary fw-bolder">
+                      <i>Scrapping</i> Sekarang
+                    </h5>
+                    <h1 class="font-display ls-tight fw-bolder mb-5">
+                      Mulai <i>scrapping</i> dengan memasukkan dokumen
+                      berjenis excel.
+                    </h1>
+                    <p class="lead">
+                      <textarea id="input-text" name="" id="" rows="7" class="form-control d-none"></textarea>
+                    <h1 class="d-none" id="input-title"></h1>
+                    <input class="form-control form-control-lg" id="excel_file" type="file" name="excel_file"
+                      accept=".xlsx, .xls" placeholder="excel file (.xls, .xlsx)" />
+                    </p>
+                  </div>
+                  <div class="col-6 mb-4 mb-lg-0 rounded-4 p-2 text-center align-self-center d-none" id="generate">
+                    <h2 class="font-display ls-tight">Start Scrap !!!</h2>
+                  </div>
+                  <div class="col-6 mb-4 mt-4 mb-lg-0 rounded-4 text-center align-self-center" id="scrap">
+                    <button type="submit" class="btn btn-unstyled">
+                      <h2 class="font-display ls-tight">
+                        Mulai <i>Scrapping</i> !!!
+                      </h2>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row justify-content-around align-items-center my-5" id="button-dynamic"></div>
+          </div>
         </div>
-      </main>
-
-      <footer class="pt-24 pb-10 px-7">
+      </div>
+      <div class="mt-2 py-20 bg-dark rounded-bottom-4 overflow-hidden position-relative z-1 px-7">
         <div class="container mw-screen-xl">
-          <div class="row">
-            <div class="col">
-              <div class="pe-5">
-                <h3 class="h2 text-heading fw-semibold lh-lg mb-3">
-                  Let's talk this your project further.
-                </h3>
-                <a
-                  href="mailto:suroboyosambat@gmail.com"
-                  class="h3 text-primary"
-                  >suroboyosambat@gmail.com
-                  <span class="svg-icon svg-align-baseline ms-3"
-                    ><i class="bi bi-arrow-right"></i></span
-                ></a>
-              </div>
-              <div class="my-7">
-                <a href="" class="btn btn-dark">Get In Touch</a>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-5 mb-7">
-            <div class="col">
-              <ul class="nav mx-n4">
-                <li class="nav-item">
-                  <a
-                    href="https://satoshi.webpixels.io/#"
-                    class="nav-link text-lg text-muted text-primary-hover"
-                    ><i class="bi bi-whatsapp"></i
-                  ></a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="https://satoshi.webpixels.io/#"
-                    class="nav-link text-lg text-muted text-primary-hover"
-                    ><i class="bi bi-instagram"></i
-                  ></a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="https://satoshi.webpixels.io/#"
-                    class="nav-link text-lg text-muted text-primary-hover"
-                    ><i class="bi bi-youtube"></i
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-auto">
-              <p class="text-sm text-muted">
-                © Copyright 2023 Webpixels - Enhance by suroboyosambat's Team.
+          <div class="col">
+            <div class="col-lg-12 col-md-10">
+              <h5 class="h5 mb-5 text-uppercase text-primary">
+                Mengapa dashboard ini dibuat
+              </h5>
+              <h1 class="display-4 font-display text-white fw-bolder lh-tight mb-4">
+                Tujuan ?
+              </h1>
+              <p class="text-lg text-white text-opacity-75">
+                Dashboard ini bertujuan untuk memberikan gambaran yang lebih
+                mendalam tentang isu-isu yang menjadi fokus perhatian
+                masyarakat Surabaya melalui analisis komentar di platform
+                Instagram. Informasi yang diberikan diharapkan dapat membantu
+                pemerintah kota dalam memahami kebutuhan dan aspirasi warga
+                secara lebih efektif.
               </p>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+      <div class="py-20 py-lg-20 bg-body-secondary">
+        <div class="container mw-screen-xl">
+          <div class="col align-items-center justify-content-center mb-10">
+            <div class="mb-4 mb-lg-0 text-center">
+              <h1 class="display-5 ls-tight mb-3">
+                Pemrosesan dengn 3 Langkah Mudah
+              </h1>
+              <p class="text-muted">
+                untuk memproses topik terbanyak pada komentar Tokoh
+              </p>
+            </div>
+          </div>
+          <div class="row g-8 justify-content-center">
+            <div class="col-md-6 col-xl-4">
+              <div class="card shadow-soft-2 h-md-100">
+                <div class="card-body d-flex flex-column p-8">
+                  <div class="col d-flex justify-content-center mb-2">
+                    <div class="icon icon-shape text-bg-primary rounded-circle mb-4 fs-1">
+                      <i class="bi bi-cloud-arrow-up-fill"></i>
+                    </div>
+                  </div>
+                  <h5 class="h4 mb-4">1. Unggah File Excel</h5>
+                  <p class="text-sm">
+                    Unggah file berekstensi .xls atau .xlsx yang berisikan
+                    kumpulan komentar pada postingan Tokoh
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <div class="card shadow-soft-2 h-md-100">
+                <div class="card-body d-flex flex-column p-8">
+                  <div class="col d-flex justify-content-center mb-2">
+                    <div class="icon icon-shape text-bg-secondary rounded-circle mb-4 fs-1">
+                      <i class="bi bi-caret-right-fill"></i>
+                    </div>
+                  </div>
+                  <h5 class="h4 mb-4">2. Generate and Proses</h5>
+                  <p class="text-sm">
+                    Proses dengan mengeklik pada tombol
+                    <strong>Start Scrap !!!</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <div class="card shadow-soft-2 h-md-100">
+                <div class="card-body d-flex flex-column p-8">
+                  <div class="col d-flex justify-content-center mb-2">
+                    <div class="icon icon-shape text-bg-dark rounded-circle mb-4 fs-1">
+                      <i class="bi bi-send-check-fill"></i>
+                    </div>
+                  </div>
+                  <h5 class="h4 mb-4">3. Periksa dan Bagikan</h5>
+                  <p class="text-sm">
+                    Periksa hasil pemrosesan model dalam bentuk
+                    <i>Word Cloud</i> dan bagikan
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <script src="{{ url_for('static', filename='js/choices.min.js.download')}}"></script>
-    <script src="{{ url_for('static', filename='js/main.js.download')}}"></script>
-    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-    <!-- <script src="{{ url_for('static', filename='js/render.js')}}"></script> -->
+    <footer class="pt-24 pb-10 px-7">
+      <div class="container mw-screen-xl">
+        <div class="row">
+          <div class="col">
+            <div class="pe-5">
+              <h3 class="h2 text-heading fw-semibold lh-lg mb-3">
+                Let's talk this your project further.
+              </h3>
+              <a href="mailto:suroboyosambat@gmail.com" class="h3 text-primary">suroboyosambat@gmail.com
+                <span class="svg-icon svg-align-baseline ms-3"><i class="bi bi-arrow-right"></i></span></a>
+            </div>
+            <div class="my-7">
+              <a href="" class="btn btn-dark">Get In Touch</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 mb-7">
+          <div class="col">
+            <ul class="nav mx-n4">
+              <li class="nav-item">
+                <a href="https://satoshi.webpixels.io/#" class="nav-link text-lg text-muted text-primary-hover"><i
+                    class="bi bi-whatsapp"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="https://satoshi.webpixels.io/#" class="nav-link text-lg text-muted text-primary-hover"><i
+                    class="bi bi-instagram"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="https://satoshi.webpixels.io/#" class="nav-link text-lg text-muted text-primary-hover"><i
+                    class="bi bi-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto">
+            <p class="text-sm text-muted">
+              © Copyright 2023 Webpixels - Enhance by suroboyosambat's Team.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-    <!-- AnyChart Base Script -->
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    <!-- AnyChart Word Cloud Script -->
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
-    <!-- Chart Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Custom Script -->
-    <script>
-      // Get the array passed from the backend
-      // Dynamic
-      var labeledSortedJumlahTopik = {{ labeled_sorted_jumlah_topik | tojson | safe }};
-      // Static
-      // var labeledSortedJumlahTopik = [
-      //   ["Keluhan terkait layanan-umum masyarakat", 6],
-      //   ["Keluhan terkait suatu daerah", 0],
-      //   ["Keluhan terkait pariwisata", 0],
-      //   ["Keluhan terkait pendidikan", 0],
-      //   ["Keluhan terkait kesehatan", 0],
-      //   ["Keluhan terkait pemerintahan", 5],
-      //   ["Keluhan terkait kehidupan-sosial antar warga", 0],
-      //   ["Keluhan terkait kesejahteraan", 4],
-      //   ["Keluhan terkait infrastruktur-it", 3],
-      //   ["Keluhan terkait layanan-pribadi", 0],
-      //   ["Keluhan terkait perpajakan", 0],
-      // ];
+  <script src="{{ url_for('static', filename='js/choices.min.js.download')}}"></script>
+  <script src="{{ url_for('static', filename='js/main.js.download')}}"></script>
+  <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/render.js')}}"></script> -->
 
-      // var labeledSortedJumlahTopik =[
-      //   ["Komentar terkait layanan komunikasi daring", 0],
-      //   ["Komentar terkait politik", 0],
-      //   ["Komentar terkait pegawai publik", 0],
-      //   ["Komentar terkait lalu lintas dan transportasi", 0],
-      //   ["Komentar terkait apresiasi dan harapan terhadap pemimpin", 0],
-      //   ["Komentar yang mengggunakan bahasa Jawa (Timur)", 0],
-      //   ["Komentar terkait doa dan harapan masyarakat", 0],
-      //   ["Komentar terkait sepak bola", 0],
-      //   ["Komentar terkait hiburan dan pariwisata", 0],
-      //   ["Komentar terkait pendidikan", 0],
-      //   ["Komentar terkait parkir liar", 0],
-      //   ["Komentar terkait infrastruktur", 0],
-      //   ["Komentar terkait kesejahteraan pribadi", 0],
-      //   ["Komentar terkait tempat tinggal", 0],
-      //   ["Komentar terkait penuntutan hak masyarakat", 0],
-      //   ["Komentar terkait usaha dan perekonomian", 0],
-      //   ["Komentar terkait layanan masyarakat", 0],
-      // ]
+  <!-- AnyChart Base Script -->
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <!-- AnyChart Word Cloud Script -->
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <!-- Chart Script -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Custom Script -->
+  <script>
+    // Get the array passed from the backend
+    // Dynamic
+    var labeledSortedJumlahTopik = {{ labeled_sorted_jumlah_topik | tojson | safe }};
+    // Static
+    // var labeledSortedJumlahTopik = [
+    //   ["Keluhan terkait layanan-umum masyarakat", 6],
+    //   ["Keluhan terkait suatu daerah", 0],
+    //   ["Keluhan terkait pariwisata", 0],
+    //   ["Keluhan terkait pendidikan", 0],
+    //   ["Keluhan terkait kesehatan", 0],
+    //   ["Keluhan terkait pemerintahan", 5],
+    //   ["Keluhan terkait kehidupan-sosial antar warga", 0],
+    //   ["Keluhan terkait kesejahteraan", 4],
+    //   ["Keluhan terkait infrastruktur-it", 3],
+    //   ["Keluhan terkait layanan-pribadi", 0],
+    //   ["Keluhan terkait perpajakan", 0],
+    // ];
 
-      // Create an array to store the repeated labels
-      var repeatedLabels = [];
+    // var labeledSortedJumlahTopik =[
+    //   ["Komentar terkait layanan komunikasi daring", 0],
+    //   ["Komentar terkait politik", 0],
+    //   ["Komentar terkait pegawai publik", 0],
+    //   ["Komentar terkait lalu lintas dan transportasi", 0],
+    //   ["Komentar terkait apresiasi dan harapan terhadap pemimpin", 0],
+    //   ["Komentar yang mengggunakan bahasa Jawa (Timur)", 0],
+    //   ["Komentar terkait doa dan harapan masyarakat", 0],
+    //   ["Komentar terkait sepak bola", 0],
+    //   ["Komentar terkait hiburan dan pariwisata", 0],
+    //   ["Komentar terkait pendidikan", 0],
+    //   ["Komentar terkait parkir liar", 0],
+    //   ["Komentar terkait infrastruktur", 0],
+    //   ["Komentar terkait kesejahteraan pribadi", 0],
+    //   ["Komentar terkait tempat tinggal", 0],
+    //   ["Komentar terkait penuntutan hak masyarakat", 0],
+    //   ["Komentar terkait usaha dan perekonomian", 0],
+    //   ["Komentar terkait layanan masyarakat", 0],
+    // ]
 
-      // Get the container element where buttons will be added
-      var container = document.getElementById("button-dynamic");
-      var btnCount = 1;
+    // Create an array to store the repeated labels
+    var repeatedLabels = [];
 
-      // Iterate through the data and repeat labels based on count
-      labeledSortedJumlahTopik.forEach(function (item) {
-        var label = item[0];
-        var count = item[1];
+    // Get the container element where buttons will be added
+    var container = document.getElementById("button-dynamic");
+    var btnCount = 1;
 
-        // Repeat the label based on count
-        for (var i = 0; i < count; i++) {
-          repeatedLabels.push(label);
+    // Iterate through the data and repeat labels based on count
+    labeledSortedJumlahTopik.forEach(function (item) {
+      var label = item[0];
+      var count = item[1];
+
+      // Repeat the label based on count
+      for (var i = 0; i < count; i++) {
+        repeatedLabels.push(label);
+      }
+
+      if (count !== 0) {
+        var div = document.createElement("div");
+        div.classList.add("col", "my-5", "d-flex", "justify-content-center");
+
+        var button = document.createElement("button");
+
+        if (btnCount === 1 || btnCount === 8 || btnCount === 15) {
+          button.classList.add("btn", "btn-army");
+        } else if (btnCount === 2 || btnCount === 9 || btnCount === 16) {
+          button.classList.add("btn", "btn-orange");
+        } else if (btnCount === 3 || btnCount === 10 || btnCount === 17) {
+          button.classList.add("btn", "btn-yellow");
+        } else if (btnCount === 4 || btnCount === 11 || btnCount === 18) {
+          button.classList.add("btn", "btn-indigo");
+        } else if (btnCount === 5 || btnCount === 12 || btnCount === 19) {
+          button.classList.add("btn", "btn-choco");
+        } else if (btnCount === 6 || btnCount === 13 || btnCount === 20) {
+          button.classList.add("btn", "btn-fuschia");
+        } else if (btnCount === 7 || btnCount === 14 || btnCount === 21) {
+          button.classList.add("btn", "btn-blue");
         }
 
-        if (count !== 0) {
-          var div = document.createElement("div");
-          div.classList.add("col", "my-5", "d-flex", "justify-content-center");
 
-          var button = document.createElement("button");
+        button.textContent = label;
 
-          if (btnCount === 1 || btnCount === 8 || btnCount === 15) {
-            button.classList.add("btn", "btn-army");
-          } else if (btnCount === 2 || btnCount === 9 || btnCount === 16) {
-            button.classList.add("btn", "btn-orange");
-          } else if (btnCount === 3 || btnCount === 10 || btnCount === 17) {
-            button.classList.add("btn", "btn-yellow");
-          } else if (btnCount === 4 || btnCount === 11 || btnCount === 18) {
-            button.classList.add("btn", "btn-indigo");
-          } else if (btnCount === 5|| btnCount === 12 || btnCount === 19) {
-            button.classList.add("btn", "btn-choco");
-          } else if (btnCount === 6|| btnCount === 13 || btnCount === 20) {
-            button.classList.add("btn", "btn-fuschia");
-          } else if (btnCount === 7|| btnCount === 14 || btnCount === 21) {
-            button.classList.add("btn", "btn-blue");
-          } 
+        // Append the button to the container
+        div.appendChild(button);
+        container.appendChild(div);
 
+        // Increment btnCount
+        btnCount++;
+      }
+    });
 
-          button.textContent = label;
+    // Convert the array to a string representation
+    var textAreaContent = repeatedLabels.join(" ");
+    var title = {{ excel_name | tojson | safe}};
 
-          // Append the button to the container
-          div.appendChild(button);
-          container.appendChild(div);
+    // Update the content of the text area
+    document.getElementById("input-text").value = textAreaContent;
+    document.getElementById("input-title").value = title;
+  </script>
+</body>
 
-          // Increment btnCount
-          btnCount++;
-        }
-      });
-
-      // Convert the array to a string representation
-      var textAreaContent = repeatedLabels.join(" ");
-      var title = {{excel_name | tojson | safe}};
-
-      // Update the content of the text area
-      document.getElementById("input-text").value = textAreaContent;
-      document.getElementById("input-title").value = title;
-    </script>
-  </body>
 </html>

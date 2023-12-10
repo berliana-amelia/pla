@@ -12,23 +12,31 @@ const colorSchemes = {
 
 // const commonWords = ["the", "be", "to", "of", "and", "a", "in", "that", "have", "it", "for", "not", "on", "with", "he", "as", "you", "do", "he", "as", "you", "do", "at", "this", "but", "his", "by", "from", "they", "we", "say", "her", "she", "or", "or", "an", "will", "my", "one", "all", "would", "there", "their", "what", "so", "up", "out", "if", "about", "who", "get", "which", "go", "me", "when", "make", "can", "like", "no", "its", "was", "i", "had", "could", "went", "how", "were", "way", "much", "is", "said", "think", "thought", "then", "down", "very", "again", "now", "quite", "im", "know", "off", "see", "into", "ill", "here", "such", "must", "did", "are", "got", "some", "your", "are", "them", "any", "has", "never", "only", "am", "more", "has", "been", "should", "other", "though", "dont", "didnt", "after", "came", "over", "come", "just", "back", "looked", "going", "before", "new", "us", "him", "something", "around", "turned", "want", "saw", "through", "made", "knew", "let", "shall", "himself", "take", "took", "well", "soon", "where", "last", "thing", "always", "little", "great", "good", "really", "too", "says", "feel", "than", "even", "enough", "under", "even", "long", "does", "why", "makes", "used", "behind", "things", "nothing", "above", "still", "upon", "every", "heard", "opening", "mans", "grew", "increase", "increased", "many", "whole", "put", "right", "each", "open", "large", "felt", "look"]
 const commonWords = [
-  "keluhan",
+  "komentar",
   "terkait",
-  "suatu",
-  "antar",
-  "warga",
+  "dan", "yang",
+  "bahasa", "Jawa",
+  "(Timur)",
+  "transportasi",
+  "terhadap",
+  "pemimpin",
   "masyarakat",
+
 ];
 
 const sample =
   "daerah pariwisata pendidikan kesehatan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan pariwisata pendidikan kesehatan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan pendidikan kesehatan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan kesehatan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan pemerintahan kehidupan-sosial layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan layanan-umum kesejahteraan infrastruktur-it layanan-pribadi perpajakan kesejahteraan infrastruktur-it layanan-pribadi perpajakan infrastruktur-it layanan-pribadi perpajakan layanan-pribadi perpajakan perpajakan";
 
+const sample17 =
+  "layanan-komunikasi-daring politik pegawai lalulintas apresiasi-harapan menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat politik pegawai lalulintas apresiasi-harapan menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat pegawai lalulintas apresiasi-harapan menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat lalulintas apresiasi-harapan menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat apresiasi-harapan menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat menggunakan-bahasa-lokal doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat doa-harapan sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat sepak-bola hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat hiburan-pariwisata pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat pendidikan parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat parkir-liar infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat infrastruktur kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat kesejahteraan-pribadi tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat tempat-tinggal penuntutan-hak usaha-ekonomi layanan-masyarakat penuntutan-hak usaha-ekonomi layanan-masyarakat usaha-ekonomi layanan-masyarakat layanan-masyarakat";
+
 document.getElementById("sambat").onload = function () {
   var text = document.getElementById("input-text").value;
-  
+  var title = document.getElementById("input-title").value;
+
   var chartData;
   if (text.length === 0) {
-    chartData = sample;
+    chartData = sample17;
   } else {
     chartData = text;
   }
@@ -39,7 +47,7 @@ document.getElementById("sambat").onload = function () {
   var chart = anychart.tagCloud();
   chart.data(cleanedText, {
     mode: "byWord",
-    maxItems: 10,
+    maxItems: 17,
     ignoreItems: commonWords,
   });
 
@@ -59,6 +67,9 @@ document.getElementById("sambat").onload = function () {
 
   // set the color when selected
   chart.selected().fill("#565f6c");
+  
+  // set the chart title
+  chart.title(title);
 
   // display the word cloud chart
   chart.container("cloud-container");
