@@ -4,3 +4,4 @@ flask
 gensim
 nltk
 pandas
+openpyxl
