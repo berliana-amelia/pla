@@ -1,0 +1,6 @@
+Sastrawi
+nltk
+flask
+gensim
+nltk
+pandas

@@ -1,0 +1,4 @@
+Sastrawi
+nltk
+flask
+gensim
